@@ -2,6 +2,8 @@
     min-height: 100vh;
     background-color: #f8f9fa;
     padding-top: 80px;
+    background-image: linear-gradient(to bottom, #f8f9fa, #e9ecef); /* subtle gradient */
+
 }
 
 .analytics-content {
@@ -41,11 +43,13 @@
     align-items: center;
     gap: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    will-change: transform;
 }
 
 .stat-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px); /* slightly lift */
+    box-shadow: 0 6px 10px rgba(0,0,0,0.08); /* subtle shadow on hover */
 }
 
 .stat-card.primary {
@@ -64,7 +68,7 @@
 }
 
 .stat-card.info {
-    background: linear-gradient(135deg, #9C27B0, #7B1FA2);
+    background: linear-gradient(135deg, #9C27B0, #6d268c);
     color: white;
 }
 
@@ -112,6 +116,8 @@
     background: #f8f9fa;
     border-radius: 10px;
     padding: 20px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    will-change: transform;
 }
 
 .performance-header {
@@ -152,6 +158,8 @@
     border-radius: 15px;
     padding: 25px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    will-change: transform;
 }
 
 .distribution-container {

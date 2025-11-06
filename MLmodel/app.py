@@ -1,5 +1,5 @@
 import os
-os.environ["CUDA_VISIBLE_DEVICES"] = "-1"  # Disable GPU before importing TF
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'  # Disable GPU before importing TF
 
 from flask import Flask, request, jsonify
 from flask_cors import CORS
