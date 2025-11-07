@@ -57,26 +57,36 @@ function AdminDashboardPage() {
             </nav>
 
             <h1>Admin Dashboard</h1>
-            <div className="table-container">
+
+            {/* Statistics Cards */}
+            <div className="statistics-section">
+                <div className="stat-card">
+                    <h3>Total Buyers</h3>
+                    <p>{buyers.length}</p>
+                </div>
+                <div className="stat-card">
+                    <h3>Total Farmers</h3>
+                    <p>{farmers.length}</p>
+                </div>
+            </div>
+
+            {/* Buyers Table */}
+            <div className="table-section">
                 <h2>Buyers</h2>
-                <table>
+                <table className="styled-table">
                     <thead>
                         <tr>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Phone Number</th>
-                            <th>Subscription Status</th>
+                            <th>Phone</th>
+                            <th>Status</th>
                             <th>Subscription Type</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {buyers.map((buyer) => (
+                        {buyers.map(buyer => (
                             <tr key={buyer._id}>
-                                <td>
-                                    {buyer.firstName && buyer.lastName
-                                        ? `${buyer.firstName} ${buyer.lastName}`
-                                        : 'N/A'}
-                                </td>
+                                <td>{buyer.firstName && buyer.lastName ? `${buyer.firstName} ${buyer.lastName}` : 'N/A'}</td>
                                 <td>{buyer.email || 'N/A'}</td>
                                 <td>{buyer.phoneNumber || 'N/A'}</td>
                                 <td>{buyer.subscription ? 'Active' : 'Inactive'}</td>
@@ -85,26 +95,25 @@ function AdminDashboardPage() {
                         ))}
                     </tbody>
                 </table>
+            </div>
 
+            {/* Farmers Table */}
+            <div className="table-section">
                 <h2>Farmers</h2>
-                <table>
+                <table className="styled-table">
                     <thead>
                         <tr>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Phone Number</th>
-                            <th>Subscription Status</th>
+                            <th>Phone</th>
+                            <th>Status</th>
                             <th>Subscription Type</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {farmers.map((farmer) => (
+                        {farmers.map(farmer => (
                             <tr key={farmer._id}>
-                                <td>
-                                    {farmer.firstName && farmer.lastName
-                                        ? `${farmer.firstName} ${farmer.lastName}`
-                                        : 'N/A'}
-                                </td>
+                                <td>{farmer.firstName && farmer.lastName ? `${farmer.firstName} ${farmer.lastName}` : 'N/A'}</td>
                                 <td>{farmer.email || 'N/A'}</td>
                                 <td>{farmer.phoneNumber || 'N/A'}</td>
                                 <td>{farmer.subscription ? 'Active' : 'Inactive'}</td>

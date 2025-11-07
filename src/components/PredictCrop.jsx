@@ -71,6 +71,9 @@ const PredictCrop = () => {
       alert(t.alert);
       return;
     }
+    setPrediction("");
+    setDiseaseInfo("");
+
 
     const formData = new FormData();
     formData.append("file", selectedFile);
@@ -83,11 +86,13 @@ const PredictCrop = () => {
       const { prediction, confidence, disease, recommendation } = response.data;
       setPrediction(`${t.prediction}: ${prediction} (${t.confidence}: ${confidence.toFixed(2)})`);
 
-      if (prediction.toLowerCase() !== "healthy") {
-        setDiseaseInfo(`${t.possibleDisease}: ${disease}\n${t.recommendation}: ${recommendation}`);
-      } else {
-        setDiseaseInfo(t.healthy);
-      }
+      //if (prediction.toLowerCase() !== "healthy") {
+        //setDiseaseInfo(`${t.possibleDisease}: ${disease}\n${t.recommendation}: ${recommendation}`);
+      //} else {
+        //setDiseaseInfo(t.healthy);
+      //}
+      setDiseaseInfo(""); // temporarily hide disease info
+
 
     } catch (error) {
       console.error("🚨 Upload Error:", error.response?.data || error.message);
